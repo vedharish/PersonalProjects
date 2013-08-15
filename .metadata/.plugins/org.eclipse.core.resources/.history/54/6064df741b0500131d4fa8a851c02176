@@ -1,0 +1,11 @@
+package com.vedharish.rsstosms;
+
+import org.xml.sax.helpers.DefaultHandler;
+
+public class RssHandler extends DefaultHandler {
+
+	public void getData() {
+		
+	}
+	
+}

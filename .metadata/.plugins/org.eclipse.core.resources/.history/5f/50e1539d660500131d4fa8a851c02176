@@ -1,0 +1,14 @@
+package com.vedharish.rsstosms;
+
+import android.os.AsyncTask;
+import android.telephony.SmsManager;
+
+public class SendSMS extends AsyncTask<Object, Void, Void>{
+	@Override
+	protected Void doInBackground(Object... inputArgumentsArray) {
+        SmsManager smsManager = SmsManager.getDefault();
+        smsManager.sendTextMessage(inputArgumentsArray[0], null, inputArgumentsArray[1], null, null);
+
+        return null;
+	}
+}
