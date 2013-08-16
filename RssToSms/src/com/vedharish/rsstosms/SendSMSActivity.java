@@ -39,11 +39,13 @@ public class SendSMSActivity extends Activity {
 				String stringMessage = editTextMessage.getText().toString();
 				
 				if(stringPhoneNumber.length()>0 && stringMessage.length()>0){
+					RetrieveData retrieveDataClass = new RetrieveData();
+					retrieveDataClass.execute("");
 					Object[] inputObjectArray = {stringPhoneNumber, stringMessage};
 					SendSMS sendSMS = new SendSMS();
 					sendSMS.execute(inputObjectArray);
 				}else{
-					Toast.makeText(getBaseContext(), "Please enter both phone number and message", Toast.LENGTH_SHORT).show();
+					createToast("Please enter both phone number and message");
 				}
 			}
 		});
@@ -54,7 +56,9 @@ public class SendSMSActivity extends Activity {
 	public void createToast(String message){
 		Toast.makeText(getBaseContext(), message, Toast.LENGTH_LONG).show();
 	}
-	
+	public SendSMS getSendSMSObject(){
+		return new SendSMS();
+	}
 	
 	public class SendSMS extends AsyncTask<Object, Integer, Void> {
 		ProgressDialog progressDialog = new ProgressDialog(SendSMSActivity.this);
