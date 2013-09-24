@@ -1,6 +1,6 @@
 def increase_array(array):
     last_element = array[len(array)-1]
-    for iterator in range(last_element+1, last_element+100):
+    for iterator in range(last_element+1, last_element+1000):
         array.append(iterator)
     return array
 
