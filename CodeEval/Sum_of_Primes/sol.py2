@@ -8,10 +8,18 @@ number_of_primes = 1000
 
 array = []
 array.append(2)
-array = increase_array(array)
-for iterator in range(0, len(array)-2):
-    for inner_iterator in range(iterator+1, len(array)-1):
-        print(inner_iterator)
-        if (array[inner_iterator]%array[iterator] == 0):
-            array.remove(array[inner_iterator])
-            print("once")
+while (len(array) < 1000):
+    array = increase_array(array)
+    iterator = 0
+    while iterator < len(array)-1:
+        inner_iterator = iterator+1
+        while inner_iterator < len(array):
+            if (array[inner_iterator]%array[iterator] == 0):
+                array.remove(array[inner_iterator])
+            inner_iterator = inner_iterator+1
+        iterator = iterator+1
+
+sum = 0
+for iterator in range(0, 1000):
+    sum += array[iterator]
+print(sum)
