@@ -1,8 +1,16 @@
 import sys
+
+def test_numbers(count_till, number_1, number_2):
+    for iterator in range(1, count_till+1):
+        print(iterator)
  
 test_cases = open(sys.argv[1], 'r')
  
 for test in test_cases:
-    print test
+    split_array = test.split()
+    number_1 = split_array[0]
+    number_2 = split_array[1]
+    count_till = split_array[2]
+    test_numbers(int(count_till), int(number_1), int(number_2))
  
 test_cases.close()
