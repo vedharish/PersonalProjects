@@ -1,0 +1,17 @@
+def increase_array(array):
+    last_element = array[len(array)-1]
+    for iterator in range(last_element+1, last_element+100):
+        array.append(iterator)
+    return array
+
+number_of_primes = 1000
+
+array = []
+array.append(2)
+array = increase_array(array)
+for iterator in range(0, len(array)-2):
+    for inner_iterator in range(iterator+1, len(array)-1):
+        print(inner_iterator)
+        if (array[inner_iterator]%array[iterator] == 0):
+            array.remove(array[inner_iterator])
+            print("once")
